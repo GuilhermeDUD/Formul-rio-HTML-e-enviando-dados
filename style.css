@@ -5,8 +5,16 @@ body {
     margin-top: 50px;
 }
 
-input, select {
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+input {
     padding: 6px;
+    display: block;
+    margin-bottom: 10px;
+    width: 200px;
 }
 
 button {

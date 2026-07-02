@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora com Seleção</title>
+    <title>Cálculo de Parcelas</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Calculadora de Quadrado ou Cubo</h1>
-    <form id="numeroForm">
-        <label for="numero">Digite um número:</label>
-        <input type="number" id="numero" name="numero" required>
+    <h1>Cálculo de Parcelas</h1>
+    <form id="parcelasForm">
+        <label for="valorTotal">Valor total da compra:</label>
+        <input type="number" id="valorTotal" name="valorTotal" required>
 
-        <label for="operacao">Escolha a operação:</label>
-        <select id="operacao" name="operacao">
-            <option value="quadrado">Quadrado</option>
-            <option value="cubo">Cubo</option>
-        </select>
+        <label for="numParcelas">Número de parcelas:</label>
+        <input type="number" id="numParcelas" name="numParcelas" required>
+
+        <label for="taxaJuros">Taxa de juros mensal (%):</label>
+        <input type="number" id="taxaJuros" name="taxaJuros" required>
 
         <button type="submit">Calcular</button>
     </form>
-    <p>O resultado é: <span id="resultado"></span></p>
+    <p>Valor de cada parcela: <span id="valorParcela"></span></p>
+    <p>Valor total a pagar: <span id="valorTotalPagar"></span></p>
 </body>
 </html>

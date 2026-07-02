@@ -1,28 +1,18 @@
-document.getElementById('numeroForm').addEventListener('submit', function(event) {
+document.getElementById('parcelasForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio do formulário
 
-    // Obtém o valor do número digitado
-    var numero = parseFloat(document.getElementById('numero').value);
+    // Obtém os valores digitados
+    var valorTotal = parseFloat(document.getElementById('valorTotal').value);
+    var numParcelas = parseFloat(document.getElementById('numParcelas').value);
+    var taxaJuros = parseFloat(document.getElementById('taxaJuros').value);
 
-    // Obtém a operação escolhida no select
-    var operacao = document.getElementById('operacao').value;
+    // Calcula o valor total com juros (juros simples sobre o valor da compra)
+    var valorComJuros = valorTotal + (valorTotal * (taxaJuros / 100) * numParcelas);
 
-    var resultado;
+    // Calcula o valor de cada parcela
+    var valorParcela = valorComJuros / numParcelas;
 
-    if (operacao === 'quadrado') {
-        resultado = calcularQuadrado(numero);
-    } else {
-        resultado = calcularCubo(numero);
-    }
-
-    // Exibe o resultado na página
-    document.getElementById('resultado').textContent = resultado;
+    // Exibe os resultados na página
+    document.getElementById('valorParcela').textContent = valorParcela.toFixed(2);
+    document.getElementById('valorTotalPagar').textContent = valorComJuros.toFixed(2);
 });
-
-function calcularQuadrado(numero) {
-    return numero * numero;
-}
-
-function calcularCubo(numero) {
-    return numero * numero * numero;
-}
