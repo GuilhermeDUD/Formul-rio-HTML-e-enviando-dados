@@ -4,13 +4,19 @@ document.getElementById('numeroForm').addEventListener('submit', function(event)
     // Obtém o valor do número digitado
     var numero = parseFloat(document.getElementById('numero').value);
 
-    // Chama as funções para calcular o quadrado e o cubo
-    var quadrado = calcularQuadrado(numero);
-    var cubo = calcularCubo(numero);
+    // Obtém a operação escolhida no select
+    var operacao = document.getElementById('operacao').value;
 
-    // Exibe os resultados na página
-    document.getElementById('resultadoQuadrado').textContent = quadrado;
-    document.getElementById('resultadoCubo').textContent = cubo;
+    var resultado;
+
+    if (operacao === 'quadrado') {
+        resultado = calcularQuadrado(numero);
+    } else {
+        resultado = calcularCubo(numero);
+    }
+
+    // Exibe o resultado na página
+    document.getElementById('resultado').textContent = resultado;
 });
 
 function calcularQuadrado(numero) {
